@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111a16">
+  <meta name="description" content="Pencarian detail alamat IP: perkiraan lokasi, ISP, organisasi, ASN, zona waktu, koordinat, IPv4/IPv6, dan data jaringan publik.">
+  <title>IPScope — IP Intelligence</title>
+  <style>
+    :root{--ink:#111a16;--muted:#64716a;--line:#e2e9e3;--lime:#c7f36a;--lime-deep:#a8df42;--paper:#f6f8f4;--white:#fff;--green:#244b35;--red:#a73838;--shadow:0 18px 55px rgba(17,26,22,.08);--radius:22px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}button,input{font:inherit}button{cursor:pointer}a{color:inherit}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #8fc735;outline-offset:3px}.shell{max-width:1120px;margin:0 auto;padding:0 22px}.topbar{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:850;letter-spacing:-.045em;font-size:21px}.brand-mark{height:35px;width:35px;border-radius:11px;background:var(--lime);display:grid;place-items:center;color:var(--ink);box-shadow:3px 3px 0 var(--ink)}.brand-mark svg{width:22px;height:22px}.top-label{font-size:11px;letter-spacing:.12em;font-weight:800;color:#4f6255;border:1px solid #d9e2d7;background:#fff;padding:8px 12px;border-radius:999px;display:flex;align-items:center;gap:8px}.live-dot{width:7px;height:7px;border-radius:50%;background:#77b82a;box-shadow:0 0 0 4px #eff8df}.hero{padding:48px 0 27px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}.eyebrow{font-size:11px;font-weight:850;letter-spacing:.15em;text-transform:uppercase;color:#537b27;display:flex;align-items:center;gap:8px}.eyebrow:before{content:"";height:2px;width:23px;background:var(--lime-deep)}h1{font-size:clamp(33px,5vw,53px);line-height:1.06;letter-spacing:-.06em;margin:14px 0 13px;max-width:650px}h1 .highlight{position:relative;white-space:nowrap;z-index:0}h1 .highlight:after{content:"";position:absolute;height:13px;background:var(--lime);left:-3px;right:-4px;bottom:1px;z-index:-1;transform:rotate(-1.2deg)}.hero p{color:var(--muted);max-width:570px;margin:0;font-size:15px}.hero-note{justify-self:end;max-width:285px;border-left:3px solid var(--lime-deep);padding:2px 0 2px 15px;color:#66716a;font-size:12px}.hero-note strong{display:block;color:var(--ink);font-size:13px;margin-bottom:4px}.search-panel{background:var(--ink);color:white;border-radius:var(--radius);padding:23px;box-shadow:var(--shadow);position:relative;overflow:hidden}.search-panel:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(199,243,106,.11);border-radius:50%;right:-90px;top:-127px;box-shadow:0 0 0 25px rgba(199,243,106,.025),0 0 0 52px rgba(199,243,106,.02);pointer-events:none}.search-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px;position:relative;z-index:1}.search-heading h2{font-size:15px;margin:0;letter-spacing:-.02em}.search-heading span{font-size:11px;color:#c7f36a;font-weight:750}.search-row{display:flex;gap:10px;position:relative;z-index:1}.input-wrap{flex:1;min-width:0;display:flex;align-items:center;gap:10px;background:#202c25;border:1px solid #39473d;border-radius:13px;padding:0 14px}.input-wrap svg{flex-shrink:0;color:#a9b5ab}.input-wrap input{width:100%;min-width:0;height:52px;border:0;outline:0;background:transparent;color:#fff;font-size:14px}.input-wrap input::placeholder{color:#97a59a}.input-wrap:focus-within{border-color:var(--lime)}.primary-btn{border:0;border-radius:13px;background:var(--lime);color:#182117;font-weight:850;padding:0 19px;min-height:52px;transition:transform .15s,background .15s;white-space:nowrap}.primary-btn:hover{background:#d5fa8a;transform:translateY(-1px)}.primary-btn:disabled{opacity:.6;cursor:wait;transform:none}.search-footer{position:relative;z-index:1;display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:13px;color:#aab5ad;font-size:11px}.examples{display:flex;gap:7px;flex-wrap:wrap}.examples button{color:#e4ebe5;border:1px solid #39473d;background:transparent;border-radius:8px;padding:4px 8px;font-size:11px}.examples button:hover{border-color:var(--lime);color:var(--lime)}.notice{margin:14px 0 0;color:#aab5ad;font-size:11px;position:relative;z-index:1}.notice strong{color:#e5eee4;font-weight:650}.status-line{min-height:27px;padding-top:7px;color:#b8c6b9;font-size:12px}.status-line.error{color:#ffaaa3}.status-line.success{color:#d5fa8a}.results{padding:27px 0 50px}.results-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:17px}.results-title{display:flex;align-items:center;gap:11px;min-width:0}.flag{width:45px;height:45px;display:grid;place-items:center;border:1px solid var(--line);background:white;border-radius:13px;font-size:24px;flex-shrink:0}.results-title h2{margin:0;font-size:17px;letter-spacing:-.035em;overflow-wrap:anywhere}.results-title p{margin:2px 0 0;color:var(--muted);font-size:11px}.action-row{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.quiet-btn{border:1px solid var(--line);border-radius:10px;background:white;padding:9px 11px;font-size:12px;font-weight:750;display:flex;align-items:center;gap:7px}.quiet-btn:hover{border-color:#a8c77f}.quiet-btn svg{width:15px;height:15px}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:19px}.metric{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;min-width:0}.metric-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#78837b;margin-bottom:8px}.metric-value{font-size:17px;line-height:1.25;font-weight:850;letter-spacing:-.035em;overflow-wrap:anywhere}.metric-sub{font-size:11px;color:var(--muted);margin-top:5px;overflow-wrap:anywhere}.section-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.detail-card{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:0}.card-head{padding:18px 19px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #eef1ed}.card-icon{height:33px;width:33px;border-radius:10px;background:#eef8df;color:#446d1b;display:grid;place-items:center;flex-shrink:0}.card-icon svg{width:17px;height:17px}.card-head h3{margin:0;font-size:14px;letter-spacing:-.02em}.card-head p{margin:2px 0 0;color:#7a867d;font-size:11px}.detail-list{padding:3px 19px 10px}.detail-row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid #f0f2ef;align-items:flex-start}.detail-row:last-child{border-bottom:0}.detail-label{font-size:12px;color:#748077;flex:0 0 42%}.detail-value{font-size:12px;font-weight:700;text-align:right;overflow-wrap:anywhere;min-width:0;max-width:58%}.value-muted{font-weight:550;color:#8b958e}.map-box{margin:0 19px 19px;border-radius:12px;background:#f2f7eb;padding:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}.map-text strong{display:block;font-size:12px}.map-text span{font-size:11px;color:#748077}.map-link{background:var(--lime);padding:9px 11px;border-radius:9px;text-decoration:none;font-weight:800;font-size:11px;white-space:nowrap}.map-link:hover{background:#b9e85b}.callout{margin-top:14px;padding:15px 17px;border:1px solid #e0e8dc;border-radius:15px;background:#f0f5ec;display:flex;gap:11px;align-items:flex-start}.callout svg{width:18px;height:18px;color:#5d7f36;flex-shrink:0;margin-top:1px}.callout p{margin:0;color:#58665b;font-size:12px}.callout strong{color:#27362a}.footer{border-top:1px solid var(--line);padding:19px 0 25px;display:flex;align-items:center;justify-content:space-between;gap:14px;color:#7a867d;font-size:11px}.footer a{font-weight:750;text-decoration:none;color:#3c5a3e}.footer a:hover{text-decoration:underline}.loader{display:inline-block;width:12px;height:12px;border:2px solid #61705f;border-top-color:var(--lime);border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:6px}@keyframes spin{to{transform:rotate(360deg)}}.hidden{display:none!important}.empty-state{border:1px dashed #cdd8cb;background:#fff;border-radius:16px;padding:28px;text-align:center;color:#718073}.empty-state strong{display:block;color:var(--ink);margin-bottom:6px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:760px){.shell{padding:0 15px}.topbar{height:67px}.hero{padding-top:34px;grid-template-columns:1fr;gap:15px}.hero-note{justify-self:start;max-width:440px}.search-panel{padding:17px;border-radius:18px}.search-row{flex-direction:column}.primary-btn{width:100%}.search-footer{align-items:flex-start;flex-direction:column}.metric-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.metric{padding:13px}.metric-value{font-size:16px}.section-grid{grid-template-columns:1fr}.results-top{align-items:flex-start;flex-direction:column}.action-row{justify-content:flex-start}.footer{align-items:flex-start;flex-direction:column}.detail-row{gap:10px}.detail-label{flex-basis:39%}.detail-value{max-width:61%}}
+    @media(max-width:390px){.top-label{font-size:9px;padding:7px 9px}.brand{font-size:19px}.metric-value{font-size:15px}.map-box{align-items:flex-start;flex-direction:column}.map-link{width:100%;text-align:center}.detail-list{padding-left:14px;padding-right:14px}.card-head{padding-left:14px;padding-right:14px}.search-heading{align-items:flex-start;flex-direction:column;gap:4px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="#top" aria-label="IPScope beranda">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2.3"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/><path d="M7.5 10.5h6M10.5 7.5v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+      IPScope<span style="font-size:11px;letter-spacing:.04em;color:#718076;font-weight:700;margin-left:1px">/ INTELLIGENCE</span>
+    </a>
+    <div class="top-label"><span class="live-dot"></span> IP LOOKUP TOOL</div>
+  </header>
+  <main id="top" class="shell">
+    <section class="hero" aria-labelledby="hero-title">
+      <div><div class="eyebrow">PUBLIC IP • NETWORK DETAILS</div><h1 id="hero-title">Kenali jaringan di balik <span class="highlight">alamat IP.</span></h1><p>Lihat perkiraan lokasi, penyedia internet, organisasi jaringan, ASN, zona waktu, dan detail teknis dari alamat IP publik.</p></div>
+      <div class="hero-note"><strong>Perlu diketahui</strong>Lokasi IP adalah perkiraan berdasarkan data jaringan—bukan pelacakan GPS atau alamat rumah yang presisi.</div>
+    </section>
+
+    <section class="search-panel" aria-labelledby="search-heading">
+      <div class="search-heading"><h2 id="search-heading">Cari alamat IP</h2><span>IPv4 &amp; IPv6 didukung</span></div>
+      <form id="lookup-form">
+        <div class="search-row">
+          <label class="input-wrap" for="ip-input"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8m0-12.8L5.6 18.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg><input id="ip-input" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="45" placeholder="Masukkan IP, misalnya 8.8.8.8" aria-label="Alamat IP yang ingin dicari"></label>
+          <button class="primary-btn" id="search-btn" type="submit">Lacak IP <span aria-hidden="true">↗</span></button>
+        </div>
+      </form>
+      <div class="search-footer"><span>Contoh untuk dicoba</span><div class="examples"><button type="button" data-ip="8.8.8.8">8.8.8.8</button><button type="button" data-ip="1.1.1.1">1.1.1.1</button><button type="button" data-ip="208.67.222.222">208.67.222.222</button><button type="button" id="my-ip-btn">IP saya ↗</button></div></div>
+      <p class="notice"><strong>Privasi:</strong> pencarian dikirim ke layanan geolokasi pihak ketiga agar data dapat diambil. Aplikasi ini tidak menyimpan riwayat pencarian di perangkat.</p>
+      <div id="status-line" class="status-line" role="status" aria-live="polite"><span class="loader"></span>Mengambil informasi IP publik Anda…</div>
+    </section>
+
+    <section class="results" id="results" aria-live="polite">
+      <div class="empty-state" id="empty-state"><strong>Memuat data IP…</strong>Detail jaringan akan muncul di bagian ini.</div>
+      <div id="result-content" class="hidden">
+        <div class="results-top">
+          <div class="results-title"><div class="flag" id="country-flag" aria-hidden="true">🌐</div><div><h2 id="result-ip">—</h2><p id="result-meta">Hasil pencarian IP publik</p></div></div>
+          <div class="action-row">
+            <button class="quiet-btn" id="copy-ip-btn" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="1.8"/></svg>Salin IP</button>
+            <button class="quiet-btn" id="export-btn" type="button"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 16v4h14v-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Ekspor JSON</button>
+          </div>
+        </div>
+        <div class="metric-grid">
+          <div class="metric"><div class="metric-label">Lokasi terdeteksi</div><div class="metric-value" id="metric-location">—</div><div class="metric-sub" id="metric-country">—</div></div>
+          <div class="metric"><div class="metric-label">Penyedia / ISP</div><div class="metric-value" id="metric-isp">—</div><div class="metric-sub" id="metric-org">Organisasi tidak tersedia</div></div>
+          <div class="metric"><div class="metric-label">Tipe alamat</div><div class="metric-value" id="metric-type">—</div><div class="metric-sub">Alamat IP publik yang dicari</div></div>
+          <div class="metric"><div class="metric-label">Zona waktu</div><div class="metric-value" id="metric-timezone">—</div><div class="metric-sub" id="metric-offset">Offset UTC tidak tersedia</div></div>
+        </div>
+        <div class="section-grid">
+          <article class="detail-card">
+            <div class="card-head"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7"/></svg></div><div><h3>Perkiraan geolokasi</h3><p>Lokasi yang diasosiasikan dengan IP</p></div></div>
+            <div class="detail-list" id="location-details"></div>
+            <div class="map-box"><div class="map-text"><strong>Koordinat perkiraan</strong><span id="map-coords">Tidak tersedia</span></div><a class="map-link" id="map-link" href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">Buka peta ↗</a></div>
+          </article>
+          <article class="detail-card">
+            <div class="card-head"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 9h18M8 9v11m8-11v11" stroke="currentColor" stroke-width="1.7"/></svg></div><div><h3>Jaringan &amp; penyedia</h3><p>Identitas jaringan yang mengumumkan IP</p></div></div>
+            <div class="detail-list" id="network-details"></div>
+          </article>
+          <article class="detail-card">
+            <div class="card-head"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3 2M3.5 9h17M6 4.7c2 2 2.5 4.7 2.5 7.3S8 17.3 6 19.3M18 4.7c-2 2-2.5 4.7-2.5 7.3s.5 5.3 2.5 7.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div><div><h3>Zona waktu &amp; wilayah</h3><p>Referensi regional dari database IP</p></div></div>
+            <div class="detail-list" id="region-details"></div>
+          </article>
+          <article class="detail-card">
+            <div class="card-head"><div class="card-icon"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 20 7v5c0 4.5-3 7.5-8 9-5-1.5-8-4.5-8-9V7l8-4Z" stroke="currentColor" stroke-width="1.7"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Informasi teknis &amp; keamanan</h3><p>Informasi yang benar-benar diberikan API</p></div></div>
+            <div class="detail-list" id="technical-details"></div>
+          </article>
+        </div>
+        <div class="callout"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5m0-8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><p><strong>Batas akurasi:</strong> hasil bergantung pada database penyedia, ISP, VPN, jaringan seluler, dan konfigurasi proxy. IP biasanya hanya menunjukkan area jaringan secara perkiraan. Hasil ini tidak dapat mengidentifikasi nama seseorang, alamat rumah, atau lokasi GPS real-time.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="shell footer"><span>© <span id="year"></span> IPScope. Informasi jaringan publik, untuk penggunaan yang bertanggung jawab.</span><span>Sumber data: <a href="https://ipwhois.io/documentation" target="_blank" rel="noopener noreferrer">IPWho.is API</a> · cadangan: <a href="https://ipapi.co/api/" target="_blank" rel="noopener noreferrer">ipapi</a></span></footer>
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const form = $('lookup-form'), input = $('ip-input'), searchBtn = $('search-btn');
+  const statusLine = $('status-line'), emptyState = $('empty-state'), resultContent = $('result-content');
+  let latestData = null;
+  $('year').textContent = new Date().getFullYear();
+
+  const valueOr = (v, fallback = 'Tidak tersedia') => v === null || v === undefined || String(v).trim() === '' ? fallback : String(v);
+  function setStatus(message, type = '') {
+    statusLine.className = 'status-line' + (type ? ' ' + type : '');
+    statusLine.replaceChildren();
+    if (type === 'loading') {
+      const spinner = document.createElement('span'); spinner.className = 'loader'; statusLine.append(spinner);
+    }
+    statusLine.append(document.createTextNode(message));
+  }
+  function normalizePrimary(d) {
+    return {
+      ip: d.ip, type: d.type, continent: d.continent, continent_code: d.continent_code,
+      country: d.country, country_code: d.country_code, region: d.region, region_code: d.region_code,
+      city: d.city, latitude: d.latitude, longitude: d.longitude, postal: d.postal,
+      calling_code: d.calling_code, capital: d.capital, borders: d.borders,
+      flag: d.flag || {}, connection: d.connection || {}, timezone: d.timezone || {},
+      currency: d.currency || {}, security: d.security || null, source: 'IPWho.is'
+    };
+  }
+  function normalizeFallback(d) {
+    return {
+      ip: d.ip, type: d.version ? 'IPv' + d.version : (String(d.ip || '').includes(':') ? 'IPv6' : 'IPv4'),
+      continent: d.continent_name, continent_code: d.continent_code, country: d.country_name,
+      country_code: d.country_code, region: d.region, region_code: d.region_code, city: d.city,
+      latitude: d.latitude, longitude: d.longitude, postal: d.postal, calling_code: d.country_calling_code,
+      capital: d.country_capital, borders: undefined, flag: {},
+      connection: { asn: d.asn, org: d.org, isp: d.org, domain: undefined },
+      timezone: { id: d.timezone, abbr: undefined, utc: d.utc_offset, current_time: undefined, is_dst: undefined },
+      currency: { name: d.currency_name, code: d.currency, symbol: d.currency_symbol }, security: null, source: 'ipapi'
+    };
+  }
+  async function fetchJSON(url, ms = 9500) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), ms);
+    try {
+      const response = await fetch(url, { method: 'GET', mode: 'cors', cache: 'no-store', signal: controller.signal, headers: { 'Accept': 'application/json' } });
+      if (!response.ok) throw new Error(response.status === 429 ? 'Batas pencarian API tercapai (429).' : 'Layanan API membalas HTTP ' + response.status + '.');
+      return await response.json();
+    } finally { clearTimeout(timer); }
+  }
+  async function getIPData(ip) {
+    const path = ip ? '/' + ip : '/';
+    try {
+      const d = await fetchJSON('https://ipwho.is' + path);
+      if (d && d.success === false) throw new Error(d.message || 'Alamat IP tidak dapat dicari.');
+      if (!d || !d.ip) throw new Error('Respons dari penyedia utama tidak lengkap.');
+      return normalizePrimary(d);
+    } catch (primaryErr) {
+      // Use the backup only when the primary service is unavailable, not for invalid/reserved IP messages.
+      if (/invalid ip|reserved range/i.test(primaryErr.message || '')) throw primaryErr;
+      try {
+        const endpoint = ip ? 'https://ipapi.co/' + ip + '/json/' : 'https://ipapi.co/json/';
+        const d = await fetchJSON(endpoint);
+        if (d && (d.error || !d.ip)) throw new Error(d.reason || d.message || 'Penyedia cadangan tidak dapat menemukan IP ini.');
+        return normalizeFallback(d);
+      } catch (backupErr) {
+        if (/invalid ip|reserved range|invalid query/i.test((backupErr.message || '').toLowerCase())) throw backupErr;
+        throw new Error('Layanan pencarian sedang tidak dapat dihubungi. Periksa koneksi internet lalu coba lagi. (' + (backupErr.message || 'koneksi gagal') + ')');
+      }
+    }
+  }
+  function addDetailRows(containerId, rows) {
+    const target = $(containerId); target.replaceChildren();
+    rows.forEach(([label, value]) => {
+      const row = document.createElement('div'); row.className = 'detail-row';
+      const left = document.createElement('div'); left.className = 'detail-label'; left.textContent = label;
+      const right = document.createElement('div'); right.className = 'detail-value';
+      const text = valueOr(value);
+      right.textContent = text;
+      if (text === 'Tidak tersedia' || text === 'Tidak disediakan pada API gratis') right.classList.add('value-muted');
+      row.append(left, right); target.append(row);
+    });
+  }
+  function showResults(d, elapsedMs) {
+    latestData = d;
+    emptyState.classList.add('hidden'); resultContent.classList.remove('hidden');
+    $('country-flag').textContent = d.flag && d.flag.emoji ? d.flag.emoji : '🌐';
+    $('result-ip').textContent = valueOr(d.ip);
+    $('result-meta').textContent = [d.city, d.region, d.country].filter(Boolean).join(' · ') || 'Hasil pencarian alamat IP';
+    $('metric-location').textContent = [d.city, d.region].filter(Boolean).join(', ') || valueOr(d.country, 'Tidak tersedia');
+    $('metric-country').textContent = [d.flag && d.flag.emoji, d.country, d.country_code ? '(' + d.country_code + ')' : ''].filter(Boolean).join(' ');
+    $('metric-isp').textContent = valueOr(d.connection && d.connection.isp, 'Tidak tersedia');
+    $('metric-org').textContent = valueOr(d.connection && d.connection.org, 'Organisasi tidak tersedia');
+    $('metric-type').textContent = valueOr(d.type, String(d.ip || '').includes(':') ? 'IPv6' : 'IPv4');
+    $('metric-timezone').textContent = valueOr(d.timezone && d.timezone.id);
+    $('metric-offset').textContent = d.timezone && d.timezone.utc ? 'UTC ' + d.timezone.utc : 'Offset UTC tidak tersedia';
+
+    addDetailRows('location-details', [
+      ['Benua', d.continent], ['Negara', d.country], ['Kode negara', d.country_code],
+      ['Provinsi / wilayah', d.region], ['Kode wilayah', d.region_code], ['Kota', d.city],
+      ['Kode pos', d.postal], ['Ibu kota negara', d.capital], ['Kode telepon negara', d.calling_code]
+    ]);
+    const c = d.connection || {};
+    addDetailRows('network-details', [
+      ['ISP / penyedia internet', c.isp], ['Organisasi jaringan', c.org], ['ASN', c.asn ? 'AS' + String(c.asn).replace(/^AS/i, '') : undefined],
+      ['Domain organisasi', c.domain], ['Alamat IP', d.ip], ['Jenis alamat', d.type]
+    ]);
+    const z = d.timezone || {}, cur = d.currency || {};
+    addDetailRows('region-details', [
+      ['Zona waktu (IANA)', z.id], ['Singkatan zona waktu', z.abbr], ['Offset UTC', z.utc],
+      ['Waktu lokal menurut API', z.current_time], ['Waktu musim panas (DST)', typeof z.is_dst === 'boolean' ? (z.is_dst ? 'Aktif' : 'Tidak aktif') : undefined],
+      ['Mata uang wilayah', cur.name], ['Kode mata uang', cur.code], ['Simbol mata uang', cur.symbol],
+      ['Kode benua', d.continent_code], ['Negara anggota Uni Eropa', typeof d.is_eu === 'boolean' ? (d.is_eu ? 'Ya' : 'Tidak') : undefined]
+    ]);
+    const s = d.security;
+    addDetailRows('technical-details', [
+      ['Versi IP', d.type], ['Latitude (perkiraan)', finite(d.latitude)], ['Longitude (perkiraan)', finite(d.longitude)],
+      ['Deteksi proxy', s && typeof s.proxy === 'boolean' ? (s.proxy ? 'Terdeteksi' : 'Tidak terdeteksi') : 'Tidak disediakan pada API gratis'],
+      ['Deteksi VPN', s && typeof s.vpn === 'boolean' ? (s.vpn ? 'Terdeteksi' : 'Tidak terdeteksi') : 'Tidak disediakan pada API gratis'],
+      ['Deteksi Tor', s && typeof s.tor === 'boolean' ? (s.tor ? 'Terdeteksi' : 'Tidak terdeteksi') : 'Tidak disediakan pada API gratis'],
+      ['Hosting / data center', s && typeof s.hosting === 'boolean' ? (s.hosting ? 'Ya' : 'Tidak terdeteksi') : 'Tidak disediakan pada API gratis'],
+      ['Negara berbatasan', d.borders], ['Sumber data', d.source], ['Waktu respons', Math.round(elapsedMs) + ' ms']
+    ]);
+    const lat = Number(d.latitude), lon = Number(d.longitude), hasCoords = d.latitude !== null && d.longitude !== null && Number.isFinite(lat) && Number.isFinite(lon) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180;
+    $('map-coords').textContent = hasCoords ? lat.toFixed(5) + ', ' + lon.toFixed(5) : 'Koordinat tidak tersedia';
+    const mapLink = $('map-link');
+    if (hasCoords) { mapLink.href = 'https://www.openstreetmap.org/?mlat=' + encodeURIComponent(lat) + '&mlon=' + encodeURIComponent(lon) + '#map=9/' + encodeURIComponent(lat) + '/' + encodeURIComponent(lon); mapLink.setAttribute('aria-disabled', 'false'); mapLink.style.opacity = '1'; }
+    else { mapLink.href = 'https://www.openstreetmap.org/'; mapLink.setAttribute('aria-disabled', 'true'); mapLink.style.opacity = '.6'; }
+    setStatus('Pencarian berhasil melalui ' + d.source + '. Waktu respons: ' + Math.round(elapsedMs) + ' ms.', 'success');
+  }
+  function finite(n) { return n !== undefined && n !== null && n !== '' && Number.isFinite(Number(n)) ? Number(n).toFixed(5) : undefined; }
+  async function lookup(ip = '') {
+    const clean = String(ip || '').trim();
+    if (clean && !/^[0-9a-fA-F:.]+$/.test(clean)) {
+      setStatus('Masukkan alamat IPv4 atau IPv6 yang valid, bukan nama domain.', 'error'); input.focus(); return;
+    }
+    if (clean.length > 45) { setStatus('Alamat IP terlalu panjang.', 'error'); return; }
+    if (clean) input.value = clean;
+    searchBtn.disabled = true; searchBtn.textContent = 'Mencari…';
+    $('my-ip-btn').disabled = true;
+    setStatus(clean ? 'Mencari detail untuk ' + clean + '…' : 'Mendeteksi IP publik Anda…', 'loading');
+    if (!latestData) { emptyState.classList.remove('hidden'); emptyState.textContent = 'Sedang mengambil data dari layanan geolokasi…'; }
+    const started = performance.now();
+    try {
+      const data = await getIPData(clean);
+      showResults(data, performance.now() - started);
+    } catch (err) {
+      const msg = err && err.message ? err.message : 'Terjadi kesalahan yang tidak diketahui.';
+      setStatus(msg, 'error');
+      if (!latestData) { emptyState.replaceChildren(); const strong = document.createElement('strong'); strong.textContent = 'Data belum dapat dimuat'; const p = document.createElement('div'); p.textContent = 'Periksa koneksi internet atau coba lagi beberapa saat.'; emptyState.append(strong, p); }
+    } finally { searchBtn.disabled = false; searchBtn.innerHTML = 'Lacak IP <span aria-hidden="true">↗</span>'; $('my-ip-btn').disabled = false; }
+  }
+  form.addEventListener('submit', e => { e.preventDefault(); lookup(input.value); });
+  document.querySelectorAll('[data-ip]').forEach(btn => btn.addEventListener('click', () => { input.value = btn.dataset.ip; lookup(btn.dataset.ip); }));
+  $('my-ip-btn').addEventListener('click', () => { input.value = ''; lookup(''); });
+  $('copy-ip-btn').addEventListener('click', async () => {
+    if (!latestData || !latestData.ip) return;
+    try { await navigator.clipboard.writeText(latestData.ip); setStatus('Alamat IP berhasil disalin.', 'success'); }
+    catch { setStatus('Clipboard tidak tersedia di browser ini. Pilih dan salin IP secara manual.', 'error'); }
+  });
+  $('export-btn').addEventListener('click', () => {
+    if (!latestData) return;
+    const blob = new Blob([JSON.stringify(latestData, null, 2)], { type: 'application/json;charset=utf-8' });
+    const url = URL.createObjectURL(blob); const a = document.createElement('a');
+    const safeIP = String(latestData.ip || 'lookup').replace(/[^0-9a-zA-Z.-]/g, '_');
+    a.href = url; a.download = 'ipscope-' + safeIP + '.json'; document.body.append(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+  });
+  input.addEventListener('keydown', e => { if (e.key === 'Escape') input.value = ''; });
+  // The initial lookup explicitly checks the visitor's public IP using the selected external provider.
+  lookup('');
+})();
+</script>
+</body>
+</html>
